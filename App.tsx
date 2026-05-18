@@ -168,8 +168,16 @@ const App: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
-  // Handle scroll or click to start
+  // Lock scroll when splash screen is active and handle start
   useEffect(() => {
+    if (!started) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = '';
+      window.scrollTo(0, 0);
+    }
+
     const handleStart = () => {
       if (!started) setStarted(true);
     };
@@ -181,6 +189,7 @@ const App: React.FC = () => {
     window.addEventListener('keydown', handleStart, { passive: true });
     
     return () => {
+      document.body.style.overflow = '';
       window.removeEventListener('wheel', handleStart);
       window.removeEventListener('touchstart', handleStart);
       window.removeEventListener('click', handleStart);
@@ -250,12 +259,12 @@ const App: React.FC = () => {
             {/* CTA Buttons & Contact Info */}
             <div className="flex flex-col items-center mt-8 z-30 relative w-full pb-8 md:pb-0 gap-6">
               {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 items-center justify-center w-full max-w-2xl px-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl px-4">
                 <a 
                   href="https://hh.ru/resume/11b439efff107ee6cf0039ed1f627671716265?hhtmFrom=resume_list" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all flex-1 h-[84px] w-full sm:w-auto min-w-[140px] group shadow-lg"
+                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] md:h-[84px] w-full group shadow-lg"
                 >
                   <FileText size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
                   <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
@@ -266,7 +275,7 @@ const App: React.FC = () => {
                 <a 
                   href="/cv.pdf" 
                   download="Robert_Grzhimaylo_CV.pdf"
-                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all flex-1 h-[84px] w-full sm:w-auto min-w-[140px] group shadow-lg"
+                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] md:h-[84px] w-full group shadow-lg"
                 >
                   <Download size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
                   <div className="uppercase tracking-wider text-[10px] leading-[1.3] flex flex-col items-center text-center">
@@ -279,11 +288,12 @@ const App: React.FC = () => {
                   href="https://t.me/rob_serg" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2.5 bg-lime-400 text-neutral-900 border border-lime-400 rounded-[35px] font-bold hover:bg-lime-300 hover:shadow-[0_0_20px_rgba(163,230,53,0.5)] transition-all flex-1 h-[84px] w-full sm:w-auto min-w-[140px] group shadow-lg"
+                  className="flex items-center justify-center gap-2.5 bg-lime-400 text-neutral-900 border border-lime-400 rounded-[35px] font-bold hover:bg-lime-300 hover:shadow-[0_0_20px_rgba(163,230,53,0.5)] transition-all h-[72px] md:h-[84px] w-full group shadow-lg"
                 >
                   <Send size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
-                  <div className="uppercase tracking-wider text-xs leading-tight text-center">
-                    Telegram
+                  <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
+                    <span>Telegram</span>
+                    <span>Связь</span>
                   </div>
                 </a>
               </div>
@@ -324,7 +334,7 @@ const App: React.FC = () => {
                       {card.short}
                     </p>
                     
-                    <div className="mt-6 flex items-center gap-3 text-xs text-lime-400 opacity-0 group-hover:opacity-100 transition-all duration-300 font-bold uppercase tracking-widest transform -translate-x-4 group-hover:translate-x-0">
+                    <div className="mt-6 flex items-center gap-3 text-xs text-lime-400 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 font-bold uppercase tracking-widest transform translate-x-0 md:-translate-x-4 md:group-hover:translate-x-0">
                       <span className="w-6 h-[2px] bg-lime-400 inline-block" />
                       Открыть
                     </div>
