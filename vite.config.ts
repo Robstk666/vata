@@ -8,6 +8,7 @@ const __dirname = dirname(__filename)
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/ai_builder/' : '/',
   plugins: [react()],
   resolve: {
     alias: {
