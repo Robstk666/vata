@@ -256,8 +256,8 @@ const App: React.FC = () => {
               </p>
             </div>
 
-            {/* CTA Buttons & Contact Info */}
-            <div className="flex flex-col items-center mt-8 z-30 relative w-full pb-8 md:pb-0 gap-6">
+            {/* CTA Buttons & Contact Info - Desktop only */}
+            <div className="hidden md:flex flex-col items-center mt-8 z-30 relative w-full pb-8 md:pb-0 gap-6">
               {/* Buttons */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl px-4">
                 <a 
@@ -343,8 +343,49 @@ const App: React.FC = () => {
               ))}
             </div>
 
-            {/* Contact Info - Mobile only (placed at the very bottom after all cards) */}
-            <div className="flex md:hidden justify-center w-full mt-8 pb-8 pointer-events-auto">
+            {/* CTA Buttons & Contact Info - Mobile only (placed at the very bottom after all cards) */}
+            <div className="flex md:hidden flex-col items-center mt-12 pb-12 w-full gap-6 pointer-events-auto">
+              {/* Buttons */}
+              <div className="grid grid-cols-1 gap-3 w-full max-w-sm px-4">
+                <a 
+                  href="https://hh.ru/resume/11b439efff107ee6cf0039ed1f627671716265?hhtmFrom=resume_list" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] w-full group shadow-lg"
+                >
+                  <FileText size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
+                    <span>Резюме</span>
+                    <span>HH</span>
+                  </div>
+                </a>
+                <a 
+                  href="/cv.pdf" 
+                  download="Robert_Grzhimaylo_CV.pdf"
+                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] w-full group shadow-lg"
+                >
+                  <Download size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="uppercase tracking-wider text-[10px] leading-[1.3] flex flex-col items-center text-center">
+                    <span className="text-xs mb-0.5">PDF</span>
+                    <span>(как просили</span>
+                    <span>в задании)</span>
+                  </div>
+                </a>
+                <a 
+                  href="https://t.me/rob_serg" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2.5 bg-lime-400 text-neutral-900 border border-lime-400 rounded-[35px] font-bold hover:bg-lime-300 hover:shadow-[0_0_20px_rgba(163,230,53,0.5)] transition-all h-[72px] w-full group shadow-lg"
+                >
+                  <Send size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
+                    <span>Telegram</span>
+                    <span>Связь</span>
+                  </div>
+                </a>
+              </div>
+
+              {/* Contact Info */}
               <div className="w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-xl backdrop-blur-sm">
                  <div className="flex items-center gap-4 text-neutral-300">
                     <Phone size={18} className="text-lime-400" />
@@ -357,7 +398,7 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-
+ 
         </div>
       </div>
 
@@ -417,4 +458,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
