@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowDownCircle, Download, Send, X, Phone, MapPin, FileText } from 'lucide-react';
+import { ArrowUpCircle, Download, Send, X, Phone, MapPin, FileText } from 'lucide-react';
 import { HERO_IMAGE_URL } from './constants';
 
 const CARDS: any[] = [
@@ -233,8 +233,8 @@ const App: React.FC = () => {
            className="flex flex-col items-center animate-bounce text-lime-400 mt-16 cursor-pointer"
            onClick={() => setStarted(true)}
          >
-           <span className="text-sm uppercase tracking-widest mb-3 font-bold opacity-80">Свайпни / Прокрути вниз</span>
-           <ArrowDownCircle size={40} className="opacity-80" />
+           <span className="text-sm uppercase tracking-widest mb-3 font-bold opacity-80">Свайпни наверх</span>
+           <ArrowUpCircle size={40} className="opacity-80" />
          </div>
       </div>
 
