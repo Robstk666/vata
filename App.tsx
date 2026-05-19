@@ -144,8 +144,6 @@ const CARDS: any[] = [
         <a 
           href="/presentation/1.pdf" 
           download="Neuro_Presentation.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full py-4 bg-lime-400 text-black font-bold rounded-xl hover:bg-lime-300 transition-colors uppercase tracking-wider text-sm mt-4"
         >
           Скачать PDF
