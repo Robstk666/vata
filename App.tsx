@@ -5,157 +5,168 @@ import { HERO_IMAGE_URL } from './constants';
 const CARDS: any[] = [
   {
     id: 1,
-    title: "01. AI + Скорость мышления",
-    short: "3 Product-концепции для рынка США. Нажми, чтобы раскрыть.",
+    title: "01. Нейрофотосессия",
+    short: "Профессиональные фотографии, сгенерированные с помощью ИИ.",
     full: ({ openImage }: any) => (
       <div className="space-y-6">
-        <p className="text-neutral-400">Вводные: рынок США требует либо виральности, либо жесткой утилитарности. 3 концепции:</p>
-        
-        <div>
-          <h4 className="text-lime-400 text-lg font-bold mb-2">1. DripCheck AI (AI Fashion Roast & Copilot)</h4>
-          <p className="text-sm mb-2"><span className="text-white">В чем идея:</span> Пользователь загружает фото наряда. AI-агент с дерзким характером «прожаривает» лук и предлагает, чем его дополнить (ссылки на покупку).</p>
-          <p className="text-sm mb-2"><span className="text-white">ЦА:</span> Gen Z, активные пользователи TikTok.</p>
-          <p className="text-sm mb-4"><span className="text-white">Монетизация:</span> Freemium + Affiliate Marketing (комиссия от брендов).</p>
-          <button 
-            onClick={() => openImage('/dripcheck.png')}
-            className="flex items-center gap-2 bg-[#252525] text-lime-400 text-xs uppercase tracking-wider font-bold py-2.5 px-6 rounded-full border border-lime-400/30 hover:bg-lime-400 hover:text-black transition-colors shadow-lg"
-          >
-            Визуал
-          </button>
+        <p className="text-neutral-400">Примеры нейрофотосессий. Кликните на изображение для увеличения.</p>
+        <div className="grid grid-cols-2 gap-4">
+          {[1, 2, 3, 4].map(num => (
+            <div 
+              key={num}
+              onClick={() => openImage(`/neurophoto/${num}.png`)}
+              className="aspect-square bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
+                Фото {num}
+              </div>
+              <img 
+                src={`/neurophoto/${num}.png`} 
+                alt={`Нейрофото ${num}`}
+                className="w-full h-full object-cover relative z-10 hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  // Fallback if image doesn't exist yet
+                  (e.target as HTMLElement).style.opacity = '0';
+                }}
+              />
+            </div>
+          ))}
         </div>
-
-        <div>
-          <h4 className="text-lime-400 text-lg font-bold mb-2">2. PetPOV (Голос твоего питомца)</h4>
-          <p className="text-sm mb-2"><span className="text-white">В чем идея:</span> На базе Vision и Voice AI. Видео питомца анализируется ИИ и накладывается смешная озвучка от первого лица с уникальным характером.</p>
-          <p className="text-sm mb-2"><span className="text-white">ЦА:</span> Владельцы животных, контент-мейкеры.</p>
-          <p className="text-sm mb-4"><span className="text-white">Виральность:</span> Контент с животными собирает миллионы просмотров в TikTok.</p>
-          <button 
-            onClick={() => openImage('/petpov.png')}
-            className="flex items-center gap-2 bg-[#252525] text-lime-400 text-xs uppercase tracking-wider font-bold py-2.5 px-6 rounded-full border border-lime-400/30 hover:bg-lime-400 hover:text-black transition-colors shadow-lg"
-          >
-            Визуал
-          </button>
-        </div>
-
-        <div>
-          <h4 className="text-lime-400 text-lg font-bold mb-2">3. BrainDump / ClearMind AI</h4>
-          <p className="text-sm mb-2"><span className="text-white">В чем идея:</span> Аудио-first приложение. Наговариваешь мысли в потоке 10 минут, LLM вытаскивает суть и раскладывает: задачи в Notion, встречи в Календарь, идеи в заметки.</p>
-          <p className="text-sm mb-2"><span className="text-white">ЦА:</span> Предприниматели, люди с ADHD.</p>
-          <p className="text-sm mb-4"><span className="text-white">Монетизация:</span> SaaS-подписка.</p>
-          <button 
-            onClick={() => openImage('/braindump.png')}
-            className="flex items-center gap-2 bg-[#252525] text-lime-400 text-xs uppercase tracking-wider font-bold py-2.5 px-6 rounded-full border border-lime-400/30 hover:bg-lime-400 hover:text-black transition-colors shadow-lg"
-          >
-            Визуал
-          </button>
-        </div>
+        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваши фото в папку public/neurophoto/ под именами 1.png, 2.png и т.д.</p>
       </div>
     ),
-    posClass: "md:top-8 md:left-0 lg:left-4"
+    posClass: "md:top-4 md:left-0 lg:left-4"
   },
   {
     id: 2,
-    title: "02. Работа с нейросетями",
-    short: "Продающий текст и мой рабочий стек промптов.",
-    full: (
+    title: "02. Видео",
+    short: "Генерация и обработка видео с использованием нейросетей.",
+    full: () => (
       <div className="space-y-6">
-        <div>
-          <h4 className="text-white font-bold text-lg mb-2">Продающий текст для поста:</h4>
-          <p className="text-sm text-neutral-300 italic border-l-2 border-lime-400 pl-4 py-1">
-            🤯 Вы сливаете 30% лидов, пока ваши менеджеры спят или пьют кофе. Засекали, сколько времени уходит на ответ клиенту в Telegram? В 2026 году клиент не ждет. Знакомьтесь: ваш новый Senior Sales. Он не ходит в отпуск и закрывает возражения за 3 секунды. Внедрили RAG-агента: квалифицирует, отвечает строго по регламенту (без галлюцинаций), заносит в AmoCRM. Пишите «ДЕМО» в комментарии, скину доступ.
-          </p>
+        <p className="text-neutral-400">Примеры сгенерированного видео.</p>
+        <div className="w-full aspect-video bg-neutral-800 rounded-xl overflow-hidden border border-white/10 relative">
+          <div className="absolute inset-0 flex items-center justify-center text-neutral-500 text-sm z-0">
+            Видео не загружено
+          </div>
+          <video 
+            src="/video/1.mp4" 
+            controls 
+            className="w-full h-full relative z-10 bg-black"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
         </div>
-        
-        <div>
-          <h4 className="text-lime-400 font-bold text-lg mb-4">Мой рабочий стек промптов (5 штук):</h4>
-          <ul className="space-y-4">
-            <li className="text-sm">
-              <span className="text-white font-bold block mb-1">1. System Prompt для RAG:</span>
-              <code className="bg-neutral-800 text-lime-300 px-2 py-1 rounded block mt-1 break-words">"Ты senior-специалист техподдержки. Отвечай строго на основе контекста. Нет ответа = перевожу на оператора."</code>
-            </li>
-            <li className="text-sm">
-              <span className="text-white font-bold block mb-1">2. JSON экстрактор:</span>
-              <code className="bg-neutral-800 text-lime-300 px-2 py-1 rounded block mt-1 break-words">"Извлеки Имя, Телефон, Бюджет. Верни СТРОГО валидный JSON, ключи на английском. Больше ничего не пиши."</code>
-            </li>
-            <li className="text-sm">
-              <span className="text-white font-bold block mb-1">3. Vibe-coding (Antigravity):</span>
-              <code className="bg-neutral-800 text-lime-300 px-2 py-1 rounded block mt-1 break-words">"Создай React-компонент дашборда (Tailwind). Темная тема, 3 метрики сверху, линейный график Recharts по центру."</code>
-            </li>
-            <li className="text-sm">
-              <span className="text-white font-bold block mb-1">4. Executive Summary:</span>
-              <code className="bg-neutral-800 text-lime-300 px-2 py-1 rounded block mt-1 break-words">"Сделай выжимку транскрипции зума. 3 блока: Боли клиента, Action Items (кто что делает), Скрытые риски."</code>
-            </li>
-            <li className="text-sm">
-              <span className="text-white font-bold block mb-1">5. Multi-shot маршрутизация:</span>
-              <code className="bg-neutral-800 text-lime-300 px-2 py-1 rounded block mt-1 break-words">"Классифицируй сообщение по категориям: [ЖАЛОБА, ПОКУПКА, ВОПРОС]. Пример: 'Сломался сайт' -{'>'} ЖАЛОБА. Верни только одно слово."</code>
-            </li>
-          </ul>
-        </div>
+        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваше видео в папку public/video/ под именем 1.mp4</p>
       </div>
     ),
-    posClass: "md:top-8 md:right-0 lg:right-4"
+    posClass: "md:top-4 md:right-0 lg:right-4"
   },
   {
     id: 3,
-    title: "03. Vibe Coding / Технологии",
-    short: "Стек, инструменты и готовые продукты.",
-    full: (
-      <ul className="space-y-4 text-sm">
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Инструменты:</span> Мой основной стек — <span className="text-lime-300">Antigravity, Google AI Studio и Julius AI</span>. Для баз знаний: <span className="text-lime-300">NotebookLM</span>. Для визуала: <span className="text-lime-300">Midjourney, Nano Banana 2</span>.
-          </div>
-        </li>
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Cursor/Lovable/Bolt:</span> С Cursor знаком (они работают схоже), но мой главный инструмент для сборки фронтенда и логики — <span className="text-lime-300 font-bold">Antigravity</span>.
-          </div>
-        </li>
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Опыт создания продуктов:</span> Да, полностью собрал и задеплоил MVP для B2B-студии Synapse (<a href="https://synapse-full.vercel.app" target="_blank" className="text-lime-300 hover:underline">synapse-full.vercel.app</a>), который принес 2 реальные продажи. Также собрал систему онбординга (<a href="https://cntb.vercel.app" target="_blank" className="text-lime-300 hover:underline">cntb.vercel.app</a>).
-          </div>
-        </li>
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Что впечатлило:</span> <span className="text-lime-300">NotebookLM</span> (гениально для документов), <span className="text-lime-300">Jules</span> (супер фиксит баги), <span className="text-lime-300">Seedance 2</span> (генерирует фильмовые видосы), <span className="text-lime-300">Nvidia NIM</span> (бесплатные токены для open-source).
-          </div>
-        </li>
-      </ul>
+    title: "03. Обложки Youtube",
+    short: "Кликабельные превью для YouTube-каналов.",
+    full: ({ openImage }: any) => (
+      <div className="space-y-6">
+        <p className="text-neutral-400">Примеры обложек для видео.</p>
+        <div className="space-y-4">
+          {[1, 2].map(num => (
+            <div 
+              key={num}
+              onClick={() => openImage(`/covers/${num}.png`)}
+              className="w-full aspect-video bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
+                Обложка {num}
+              </div>
+              <img 
+                src={`/covers/${num}.png`} 
+                alt={`Обложка ${num}`}
+                className="w-full h-full object-cover relative z-10 hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.opacity = '0';
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваши обложки в папку public/covers/ под именами 1.png, 2.png</p>
+      </div>
     ),
-    posClass: "md:bottom-8 md:left-0 lg:left-4"
+    posClass: "md:top-1/2 md:left-0 lg:left-4 md:-translate-y-1/2"
   },
   {
     id: 4,
-    title: <>04. Личное <br />(Честный срез)</>,
-    short: "Почему мне интересна эта позиция и в чем моя сила.",
-    full: (
-      <ul className="space-y-4 text-sm">
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Почему интересна вакансия:</span> Буду честен. На текущей основной работе у меня много свободного времени, которое я пустил в дело — освоил vibe-coding до уровня самостоятельного создания веб-приложений (как тот же Synapse, сделавший 2 продажи). Уходить с основной работы я не планирую (есть бронь от предприятия). Мне интересно развиваться в AI part-time. Вам это супер-выгодно: вы получаете осознанного, взрослого «джуна» с крутым управленческим бэкграундом, чьи решения по эффективности и пониманию бизнеса перебьют любого зумера.
+    title: "04. Нейропрезентации",
+    short: "Пример презентации, созданной ИИ.",
+    full: () => (
+      <div className="space-y-6 h-full flex flex-col">
+        <p className="text-neutral-400">PDF презентация, сгенерированная и оформленная с помощью AI.</p>
+        
+        <div className="w-full flex-grow min-h-[400px] bg-neutral-800 rounded-xl overflow-hidden border border-white/10 relative">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-500 text-sm z-0 gap-4 p-6 text-center">
+            <p>Если PDF не отображается автоматически, вы можете скачать его по кнопке ниже.</p>
           </div>
-        </li>
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Сильная сторона:</span> Объединение бизнес-логики и технологий (Tech-COO). Я понимаю, откуда берутся деньги, поэтому собираю инструменты, которые могут решать проблемы.
-          </div>
-        </li>
-        <li className="flex items-start">
-          <span className="text-lime-400 mr-2 mt-1">•</span>
-          <div>
-            <span className="text-white font-bold">Стресс:</span> Я бывший операционный директор (штат 30+). Хаос — моя среда обитания. Декомпозирую пожар на задачи и закрываю спринтами.
-          </div>
-        </li>
-      </ul>
+          <iframe 
+            src="/presentation/1.pdf" 
+            className="w-full h-full relative z-10 bg-white"
+            title="Нейропрезентация"
+            onError={(e) => {
+              (e.target as HTMLElement).style.display = 'none';
+            }}
+          />
+        </div>
+        
+        <a 
+          href="/presentation/1.pdf" 
+          download="Neuro_Presentation.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 w-full py-4 bg-lime-400 text-black font-bold rounded-xl hover:bg-lime-300 transition-colors uppercase tracking-wider text-sm mt-4"
+        >
+          Скачать PDF
+        </a>
+        <p className="text-xs text-lime-400/70 text-center">* Добавьте вашу презентацию в папку public/presentation/ под именем 1.pdf</p>
+      </div>
     ),
-    posClass: "md:bottom-8 md:right-0 lg:right-4"
+    posClass: "md:bottom-4 md:right-0 lg:right-4"
+  },
+  {
+    id: 5,
+    title: "05. AI Проекты",
+    short: "Реализованные проекты с внедрением ИИ.",
+    full: () => (
+      <div className="space-y-6">
+        <p className="text-neutral-400">Список реализованных проектов с использованием AI-технологий:</p>
+        
+        <div className="space-y-4">
+          <a href="https://synapse-full.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl border border-white/10 hover:border-lime-400 bg-neutral-800/50 hover:bg-neutral-800 transition-all group">
+            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Корпоративный сайт для веб-студии</h4>
+            <p className="text-sm text-neutral-300">Архитектура + полная AI-генерация контента.</p>
+            <p className="text-xs text-neutral-500 mt-2 truncate">synapse-full.vercel.app</p>
+          </a>
+          
+          <a href="https://cntb.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl border border-white/10 hover:border-lime-400 bg-neutral-800/50 hover:bg-neutral-800 transition-all group">
+            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Система корпоративного обучения</h4>
+            <p className="text-sm text-neutral-300">Платформа онбординга, внедрена в гос. структуре.</p>
+            <p className="text-xs text-neutral-500 mt-2 truncate">cntb.vercel.app</p>
+          </a>
+          
+          <a href="https://flashfirstbrif.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl border border-white/10 hover:border-lime-400 bg-neutral-800/50 hover:bg-neutral-800 transition-all group">
+            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Пошаговый AI-тренажер</h4>
+            <p className="text-sm text-neutral-300">Внутренний инструмент. Ускорил адаптацию сейлзов с 2 месяцев до 1.</p>
+            <p className="text-xs text-neutral-500 mt-2 truncate">flashfirstbrif.vercel.app</p>
+          </a>
+          
+          <a href="https://v0-website-brief-generator.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl border border-white/10 hover:border-lime-400 bg-neutral-800/50 hover:bg-neutral-800 transition-all group">
+            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Web-бриф для B2B</h4>
+            <p className="text-sm text-neutral-300">Первичная квалификация клиентов. Рост конверсии в сделку на 10-15%.</p>
+            <p className="text-xs text-neutral-500 mt-2 truncate">v0-website-brief-generator.vercel.app</p>
+          </a>
+        </div>
+      </div>
+    ),
+    posClass: "md:bottom-4 md:left-0 lg:left-4"
   }
 ];
 
