@@ -10,14 +10,14 @@ const CARDS: any[] = [
     full: ({ openImage }: any) => (
       <div className="space-y-6">
         <p className="text-neutral-400">Примеры нейрофотосессий. Кликните на изображение для увеличения.</p>
-        <div className="grid grid-cols-2 gap-4">
-          {[1, 2, 3, 4].map(num => (
+        <div className="grid grid-cols-3 gap-4">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
             <div 
               key={num}
               onClick={() => openImage(`/neurophoto/${num}.png`)}
               className="aspect-square bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
             >
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
+              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-xs z-0">
                 Фото {num}
               </div>
               <img 
@@ -25,14 +25,12 @@ const CARDS: any[] = [
                 alt={`Нейрофото ${num}`}
                 className="w-full h-full object-cover relative z-10 hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
-                  // Fallback if image doesn't exist yet
                   (e.target as HTMLElement).style.opacity = '0';
                 }}
               />
             </div>
           ))}
         </div>
-        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваши фото в папку public/neurophoto/ под именами 1.png, 2.png и т.д.</p>
       </div>
     ),
     posClass: "md:top-4 md:left-0 lg:left-4"
@@ -41,23 +39,30 @@ const CARDS: any[] = [
     id: 2,
     title: "02. Видео",
     short: "Генерация и обработка видео с использованием нейросетей.",
-    full: () => (
+    full: ({ openImage }: any) => (
       <div className="space-y-6">
         <p className="text-neutral-400">Примеры сгенерированного видео.</p>
-        <div className="w-full aspect-video bg-neutral-800 rounded-xl overflow-hidden border border-white/10 relative">
-          <div className="absolute inset-0 flex items-center justify-center text-neutral-500 text-sm z-0">
-            Видео не загружено
-          </div>
-          <video 
-            src="/video/1.mp4" 
-            controls 
-            className="w-full h-full relative z-10 bg-black"
-            onError={(e) => {
-              (e.target as HTMLElement).style.display = 'none';
-            }}
-          />
+        <div className="grid grid-cols-2 gap-4">
+          {[1, 2, 3, 4, 5].map(num => (
+            <div 
+              key={num}
+              onClick={() => openImage(`/video/${num}.mp4`)}
+              className="aspect-video bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
+                Видео {num}
+              </div>
+              <video 
+                src={`/video/${num}.mp4#t=0.1`} 
+                preload="metadata"
+                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  (e.target as HTMLElement).style.opacity = '0';
+                }}
+              />
+            </div>
+          ))}
         </div>
-        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваше видео в папку public/video/ под именем 1.mp4</p>
       </div>
     ),
     posClass: "md:top-4 md:right-0 lg:right-4"
@@ -70,18 +75,18 @@ const CARDS: any[] = [
       <div className="space-y-6">
         <p className="text-neutral-400">Примеры обложек для видео.</p>
         <div className="space-y-4">
-          {[1, 2].map(num => (
+          {['IMG_2104', 'IMG_4528', 'IMG_4530'].map(name => (
             <div 
-              key={num}
-              onClick={() => openImage(`/covers/${num}.png`)}
+              key={name}
+              onClick={() => openImage(`/covers/${name}.png`)}
               className="w-full aspect-video bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
             >
               <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
-                Обложка {num}
+                Открыть обложку
               </div>
               <img 
-                src={`/covers/${num}.png`} 
-                alt={`Обложка ${num}`}
+                src={`/covers/${name}.png`} 
+                alt={`Обложка ${name}`}
                 className="w-full h-full object-cover relative z-10 hover:scale-105 transition-transform duration-500"
                 onError={(e) => {
                   (e.target as HTMLElement).style.opacity = '0';
@@ -90,7 +95,6 @@ const CARDS: any[] = [
             </div>
           ))}
         </div>
-        <p className="text-xs text-lime-400/70 mt-4">* Добавьте ваши обложки в папку public/covers/ под именами 1.png, 2.png</p>
       </div>
     ),
     posClass: "md:top-1/2 md:left-0 lg:left-4 md:-translate-y-1/2"
@@ -103,19 +107,15 @@ const CARDS: any[] = [
       <div className="space-y-6 h-full flex flex-col">
         <p className="text-neutral-400">PDF презентация, сгенерированная и оформленная с помощью AI.</p>
         
-        <div className="w-full flex-grow min-h-[400px] bg-neutral-800 rounded-xl overflow-hidden border border-white/10 relative">
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-500 text-sm z-0 gap-4 p-6 text-center">
-            <p>Если PDF не отображается автоматически, вы можете скачать его по кнопке ниже.</p>
-          </div>
-          <iframe 
-            src="/presentation/1.pdf" 
-            className="w-full h-full relative z-10 bg-white"
-            title="Нейропрезентация"
-            onError={(e) => {
-              (e.target as HTMLElement).style.display = 'none';
-            }}
-          />
-        </div>
+        <a 
+          href="/presentation/1.pdf" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center justify-center gap-4 w-full py-12 bg-neutral-800/50 text-white font-bold rounded-xl border border-white/10 hover:border-lime-400 hover:text-lime-400 transition-all uppercase tracking-wider text-lg shadow-lg group mt-4"
+        >
+          <span className="text-4xl group-hover:scale-110 transition-transform">📄</span>
+          Смотреть презентацию
+        </a>
         
         <a 
           href="/presentation/1.pdf" 
@@ -126,7 +126,6 @@ const CARDS: any[] = [
         >
           Скачать PDF
         </a>
-        <p className="text-xs text-lime-400/70 text-center">* Добавьте вашу презентацию в папку public/presentation/ под именем 1.pdf</p>
       </div>
     ),
     posClass: "md:bottom-4 md:right-0 lg:right-4"
@@ -227,8 +226,8 @@ const App: React.FC = () => {
         className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#171717] transition-all duration-1000 ease-in-out
           ${started ? 'opacity-0 pointer-events-none -translate-y-full blur-sm' : 'opacity-100 translate-y-0 blur-0'}`}
       >
-         <h1 className="text-4xl md:text-5xl lg:text-7xl font-display text-white text-center mb-8 uppercase px-4 max-w-5xl leading-tight tracking-wide">
-           Тестовое задание <br className="hidden md:block" /> от Роберта Гржимайло
+         <h1 className="text-3xl md:text-4xl lg:text-5xl font-display text-white text-center mb-8 uppercase px-4 max-w-5xl leading-tight tracking-wide">
+           Нейропортфолио <br className="hidden md:block" /> Для «Вата фотостудия» <br className="hidden md:block" /> От Гржимайло Роберта
          </h1>
          <div 
            className="flex flex-col items-center animate-bounce text-lime-400 mt-16 cursor-pointer"
@@ -270,7 +269,7 @@ const App: React.FC = () => {
             {/* CTA Buttons & Contact Info - Desktop only */}
             <div className="hidden md:flex flex-col items-center mt-8 z-30 relative w-full pb-8 md:pb-0 gap-6">
               {/* Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-2xl px-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg px-4">
                 <a 
                   href="https://hh.ru/resume/11b439efff107ee6cf0039ed1f627671716265?hhtmFrom=resume_list" 
                   target="_blank"
@@ -281,18 +280,6 @@ const App: React.FC = () => {
                   <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
                     <span>Резюме</span>
                     <span>HH</span>
-                  </div>
-                </a>
-                <a 
-                  href="/cv.pdf" 
-                  download="Robert_Grzhimaylo_CV.pdf"
-                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] md:h-[84px] w-full group shadow-lg"
-                >
-                  <Download size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
-                  <div className="uppercase tracking-wider text-[10px] leading-[1.3] flex flex-col items-center text-center">
-                    <span className="text-xs mb-0.5">PDF</span>
-                    <span>(как просили</span>
-                    <span>в задании)</span>
                   </div>
                 </a>
                 <a 
@@ -357,7 +344,7 @@ const App: React.FC = () => {
             {/* CTA Buttons & Contact Info - Mobile only (placed at the very bottom after all cards) */}
             <div className="flex md:hidden flex-col items-center mt-12 pb-12 w-full gap-6 pointer-events-auto">
               {/* Buttons */}
-              <div className="grid grid-cols-1 gap-3 w-full max-w-sm px-4">
+              <div className="grid grid-cols-1 gap-4 w-full max-w-xs px-4">
                 <a 
                   href="https://hh.ru/resume/11b439efff107ee6cf0039ed1f627671716265?hhtmFrom=resume_list" 
                   target="_blank"
@@ -368,18 +355,6 @@ const App: React.FC = () => {
                   <div className="uppercase tracking-wider text-xs leading-tight flex flex-col items-center text-center">
                     <span>Резюме</span>
                     <span>HH</span>
-                  </div>
-                </a>
-                <a 
-                  href="/cv.pdf" 
-                  download="Robert_Grzhimaylo_CV.pdf"
-                  className="flex items-center justify-center gap-2.5 bg-neutral-800 text-white border border-white/20 rounded-[35px] font-bold hover:bg-white hover:text-black hover:border-white transition-all h-[72px] w-full group shadow-lg"
-                >
-                  <Download size={20} className="shrink-0 group-hover:-translate-y-0.5 transition-transform" />
-                  <div className="uppercase tracking-wider text-[10px] leading-[1.3] flex flex-col items-center text-center">
-                    <span className="text-xs mb-0.5">PDF</span>
-                    <span>(как просили</span>
-                    <span>в задании)</span>
                   </div>
                 </a>
                 <a 
@@ -455,12 +430,22 @@ const App: React.FC = () => {
           >
             <X size={24} />
           </button>
-          <img 
-             src={previewImage} 
-             alt="Preview" 
-             className="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-[0_0_50px_rgba(163,230,53,0.1)]"
-             onClick={(e) => e.stopPropagation()}
-          />
+          {previewImage.endsWith('.mp4') ? (
+            <video 
+              src={previewImage} 
+              controls 
+              autoPlay
+              className="max-w-[95vw] max-h-[90vh] rounded-xl shadow-[0_0_50px_rgba(163,230,53,0.1)] outline-none"
+              onClick={(e) => e.stopPropagation()}
+            />
+          ) : (
+            <img 
+               src={previewImage} 
+               alt="Preview" 
+               className="max-w-[95vw] max-h-[90vh] object-contain rounded-xl shadow-[0_0_50px_rgba(163,230,53,0.1)]"
+               onClick={(e) => e.stopPropagation()}
+            />
+          )}
         </div>
       )}
 
