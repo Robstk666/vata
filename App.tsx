@@ -41,27 +41,51 @@ const CARDS: any[] = [
     short: "Генерация и обработка видео с использованием нейросетей.",
     full: ({ openImage }: any) => (
       <div className="space-y-6">
-        <p className="text-neutral-400">Примеры сгенерированного видео.</p>
-        <div className="grid grid-cols-2 gap-4">
+        <p className="text-neutral-400">Примеры сгенерированного видео. Нажмите для просмотра.</p>
+
+        <div className="grid grid-cols-2 gap-3">
           {[1, 2, 3, 4, 5].map(num => (
             <div 
               key={num}
               onClick={() => openImage(`/video/${num}.mp4`)}
-              className="aspect-video bg-neutral-800 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-colors group relative"
+              className="aspect-video bg-neutral-900 rounded-xl overflow-hidden cursor-pointer border border-white/10 hover:border-lime-400 transition-all duration-300 group relative flex items-center justify-center"
             >
-              <div className="absolute inset-0 flex items-center justify-center text-neutral-500 group-hover:text-lime-400 text-sm z-0">
-                Видео {num}
+              {/* Play button icon */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-1">
+                <div className="w-10 h-10 rounded-full bg-lime-400/20 border border-lime-400/40 flex items-center justify-center group-hover:bg-lime-400 group-hover:border-lime-400 transition-all duration-300">
+                  <svg className="w-4 h-4 text-lime-400 group-hover:text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+                <span className="text-xs text-neutral-500 group-hover:text-lime-400 transition-colors">Видео {num}</span>
               </div>
+              {/* Lazy thumbnail — preload=none не грузит видео в фоне */}
               <video 
-                src={`/video/${num}.mp4#t=0.1`} 
-                preload="metadata"
-                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.opacity = '0';
-                }}
+                src={`/video/${num}.mp4`}
+                preload="none"
+                className="absolute inset-0 w-full h-full object-cover opacity-0"
+                onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
               />
             </div>
           ))}
+        </div>
+
+        {/* Yandex Disk fallback */}
+        <div className="mt-2 p-4 rounded-xl border border-white/10 bg-neutral-800/40">
+          <p className="text-xs text-neutral-400 mb-3">
+            🐌 Если видео долго загружается — смотрите сразу на Яндекс.Диске:
+          </p>
+          <a
+            href="https://disk.yandex.ru/d/1BfFHeyLg5yeug"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-3 bg-[#FC3F1D] text-white font-bold rounded-xl hover:bg-[#e8361a] transition-colors uppercase tracking-wider text-sm"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.1 6H12V2h1.1C16.2 2 18 3.8 18 6.4c0 1.8-.9 3.1-2.2 3.8L18 14h-2.3l-2.6-3.6h-.1V14H11V6h2.1zm0 3c1 0 1.9-.6 1.9-1.6 0-1-.9-1.6-1.9-1.6h-.1v3.2h.1zM7 2h2v12H7V8.5L4.5 14H2.3l2.8-5.8C3.8 7.5 3 6.5 3 5.2 3 3.2 4.8 2 7 2zm0 2c-.9 0-2 .5-2 1.5S6.1 7 7 7h0V4z"/>
+            </svg>
+            Открыть на Яндекс.Диске
+          </a>
         </div>
       </div>
     ),
