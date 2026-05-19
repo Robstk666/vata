@@ -125,36 +125,7 @@ const CARDS: any[] = [
   },
   {
     id: 4,
-    title: "04. Нейропрезентации",
-    short: "Пример презентации, созданной ИИ.",
-    full: () => (
-      <div className="space-y-6 h-full flex flex-col">
-        <p className="text-neutral-400">PDF презентация, сгенерированная и оформленная с помощью AI.</p>
-        
-        <a 
-          href="/presentation/1.pdf" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-4 w-full py-12 bg-neutral-800/50 text-white font-bold rounded-xl border border-white/10 hover:border-lime-400 hover:text-lime-400 transition-all uppercase tracking-wider text-lg shadow-lg group mt-4"
-        >
-          <span className="text-4xl group-hover:scale-110 transition-transform">📄</span>
-          Смотреть презентацию
-        </a>
-        
-        <a 
-          href="/presentation/1.pdf" 
-          download="Neuro_Presentation.pdf"
-          className="flex items-center justify-center gap-2 w-full py-4 bg-lime-400 text-black font-bold rounded-xl hover:bg-lime-300 transition-colors uppercase tracking-wider text-sm mt-4"
-        >
-          Скачать PDF
-        </a>
-      </div>
-    ),
-    posClass: "md:bottom-4 md:right-0 lg:right-4"
-  },
-  {
-    id: 5,
-    title: "05. AI Проекты",
+    title: "04. AI Проекты",
     short: "Реализованные проекты с внедрением ИИ.",
     full: () => (
       <div className="space-y-6">
@@ -187,7 +158,36 @@ const CARDS: any[] = [
         </div>
       </div>
     ),
-    posClass: "md:bottom-4 md:left-0 lg:left-4"
+    posClass: "md:top-1/2 md:right-0 lg:right-4 md:-translate-y-1/2"
+  },
+  {
+    id: 5,
+    title: "05. Нейропрезентации",
+    short: "Пример презентации, созданной ИИ.",
+    full: () => (
+      <div className="space-y-6 h-full flex flex-col">
+        <p className="text-neutral-400">PDF презентация, сгенерированная и оформленная с помощью AI.</p>
+        
+        <a 
+          href="/presentation/1.pdf" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center justify-center gap-4 w-full py-12 bg-neutral-800/50 text-white font-bold rounded-xl border border-white/10 hover:border-lime-400 hover:text-lime-400 transition-all uppercase tracking-wider text-lg shadow-lg group mt-4"
+        >
+          <span className="text-4xl group-hover:scale-110 transition-transform">📄</span>
+          Смотреть презентацию
+        </a>
+        
+        <a 
+          href="/presentation/1.pdf" 
+          download="Neuro_Presentation.pdf"
+          className="flex items-center justify-center gap-2 w-full py-4 bg-lime-400 text-black font-bold rounded-xl hover:bg-lime-300 transition-colors uppercase tracking-wider text-sm mt-4"
+        >
+          Скачать PDF
+        </a>
+      </div>
+    ),
+    posClass: "md:bottom-4 md:right-0 lg:right-4"
   }
 ];
 
