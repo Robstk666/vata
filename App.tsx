@@ -261,15 +261,15 @@ const App: React.FC = () => {
       </div>
 
       {/* MAIN LAYOUT */}
-      <div className={`w-full min-h-screen flex flex-col items-center justify-center p-6 md:p-8 lg:p-12 transition-all duration-1000 delay-300 ease-out
+      <div className={`w-full min-h-screen flex flex-col items-center justify-center pt-4 pb-6 px-4 md:p-8 lg:p-12 transition-all duration-1000 delay-300 ease-out
         ${started ? 'opacity-100 scale-100' : 'opacity-0 scale-[0.98]'}`}>
         
         {/* DESKTOP LAYOUT CONTAINER */}
-        <div className="relative w-full max-w-[1400px] h-full min-h-[85vh] flex flex-col items-center justify-center pt-10 md:pt-0">
+        <div className="relative w-full max-w-[1400px] h-full min-h-[85vh] flex flex-col items-center justify-center pt-2 md:pt-0">
           
           {/* CENTER PHOTO & CTA */}
           <div className="relative z-10 flex flex-col items-center w-full max-w-md">
-            <div className="relative w-[280px] md:w-[350px] lg:w-[400px] aspect-[3/4] flex justify-center items-end">
+            <div className="relative w-[88vw] max-w-[340px] md:w-[350px] lg:w-[400px] aspect-[3/4] flex justify-center items-end">
                <img 
                  src={HERO_IMAGE_URL} 
                  alt="Роберт Гржимайло"
