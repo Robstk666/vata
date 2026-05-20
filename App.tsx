@@ -271,9 +271,9 @@ const App: React.FC = () => {
           <div className="absolute inset-0 flex items-start justify-center overflow-hidden pointer-events-none select-none z-0 pt-4 md:pt-6">
             <span
               className="font-display font-black uppercase whitespace-nowrap w-full text-center"
-              style={{ color: 'rgba(255,255,255,0.05)', fontSize: 'clamp(1.2rem, 8vw, 6rem)', letterSpacing: '0.02em' }}
+              style={{ color: 'rgba(255,255,255,0.05)', fontSize: 'clamp(2rem, 12vw, 7rem)', letterSpacing: '0.05em' }}
             >
-              ГРЖИМАЙЛО РОБЕРТ
+              РОБЕРТ
             </span>
           </div>
 
