@@ -187,7 +187,7 @@ const CARDS: any[] = [
         </a>
       </div>
     ),
-    posClass: "md:bottom-4 md:right-0 lg:right-4"
+    posClass: "md:bottom-4 md:left-0 lg:left-4"
   }
 ];
 
