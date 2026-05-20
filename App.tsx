@@ -337,24 +337,26 @@ const App: React.FC = () => {
               </div>
 
               {/* Contact Info (like image) - Desktop only */}
-              <div className="hidden md:flex w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex-col gap-4 shadow-xl backdrop-blur-sm items-center">
-                 <div className="flex items-center gap-3 text-neutral-300">
-                    <Phone size={17} className="text-lime-400 shrink-0" />
-                    <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
+              <div className="hidden md:flex w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex-col items-center gap-4 shadow-xl backdrop-blur-sm">
+                 <div className="flex flex-col gap-4 w-fit">
+                   <div className="flex items-center gap-4 text-neutral-300">
+                      <Phone size={18} className="text-lime-400 shrink-0" />
+                      <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
+                   </div>
+                   <div className="flex items-center gap-4 text-neutral-300">
+                      <MapPin size={18} className="text-lime-400 shrink-0" />
+                      <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
+                   </div>
+                   <a
+                     href="https://vata-ecru.vercel.app"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="flex items-center gap-4 text-lime-400 hover:text-lime-300 transition-colors text-[15px] font-bold"
+                   >
+                     <svg className="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                     Открыть в браузере
+                   </a>
                  </div>
-                 <div className="flex items-center gap-3 text-neutral-300">
-                    <MapPin size={17} className="text-lime-400 shrink-0" />
-                    <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
-                 </div>
-                 <a
-                   href="https://vata-ecru.vercel.app"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="flex items-center justify-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold w-full"
-                 >
-                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                   Открыть в браузере
-                 </a>
               </div>
             </div>
           </div>
@@ -421,24 +423,26 @@ const App: React.FC = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-xl backdrop-blur-sm items-center">
-                 <div className="flex items-center gap-3 text-neutral-300">
-                    <Phone size={17} className="text-lime-400 shrink-0" />
-                    <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
+              <div className="w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex flex-col items-center gap-4 shadow-xl backdrop-blur-sm">
+                 <div className="flex flex-col gap-4 w-fit">
+                   <div className="flex items-center gap-4 text-neutral-300">
+                      <Phone size={18} className="text-lime-400 shrink-0" />
+                      <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
+                   </div>
+                   <div className="flex items-center gap-4 text-neutral-300">
+                      <MapPin size={18} className="text-lime-400 shrink-0" />
+                      <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
+                   </div>
+                   <a
+                     href="https://vata-ecru.vercel.app"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     className="flex items-center gap-4 text-lime-400 hover:text-lime-300 transition-colors text-[15px] font-bold"
+                   >
+                     <svg className="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                     Открыть в браузере
+                   </a>
                  </div>
-                 <div className="flex items-center gap-3 text-neutral-300">
-                    <MapPin size={17} className="text-lime-400 shrink-0" />
-                    <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
-                 </div>
-                 <a
-                   href="https://vata-ecru.vercel.app"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   className="flex items-center justify-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold w-full"
-                 >
-                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                   Открыть в браузере
-                 </a>
               </div>
             </div>
           </div>
