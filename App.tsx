@@ -350,7 +350,7 @@ const App: React.FC = () => {
                    href="https://vata-ecru.vercel.app"
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold"
+                   className="flex items-center justify-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold w-full"
                  >
                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                    Открыть в браузере
@@ -434,7 +434,7 @@ const App: React.FC = () => {
                    href="https://vata-ecru.vercel.app"
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold"
+                   className="flex items-center justify-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold w-full"
                  >
                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                    Открыть в браузере
