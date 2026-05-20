@@ -145,7 +145,7 @@ const CARDS: any[] = [
           </a>
           
           <a href="https://flashfirstbrif.vercel.app/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl border border-white/10 hover:border-lime-400 bg-neutral-800/50 hover:bg-neutral-800 transition-all group">
-            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Пошаговый AI-тренажер</h4>
+            <h4 className="text-lime-400 font-bold mb-1 group-hover:text-lime-300">Пошаговый тренажер для сейлзов</h4>
             <p className="text-sm text-neutral-300">Внутренний инструмент. Ускорил адаптацию сейлзов с 2 месяцев до 1.</p>
             <p className="text-xs text-neutral-500 mt-2 truncate">flashfirstbrif.vercel.app</p>
           </a>
