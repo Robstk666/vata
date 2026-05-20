@@ -267,6 +267,16 @@ const App: React.FC = () => {
         {/* DESKTOP LAYOUT CONTAINER */}
         <div className="relative w-full max-w-[1400px] h-full min-h-[85vh] flex flex-col items-center justify-center pt-2 md:pt-0">
           
+          {/* BACKGROUND NAME WATERMARK */}
+          <div className="absolute inset-0 flex items-start justify-center overflow-hidden pointer-events-none select-none z-0 pt-4 md:pt-6">
+            <span
+              className="font-display font-black uppercase tracking-widest whitespace-nowrap w-full text-center"
+              style={{ color: 'rgba(255,255,255,0.045)', fontSize: 'clamp(2rem, 12vw, 7rem)' }}
+            >
+              ГРЖИМАЙЛО РОБЕРТ
+            </span>
+          </div>
+
           {/* CENTER PHOTO & CTA */}
           <div className="relative z-10 flex flex-col items-center w-full max-w-md">
             <div className="relative w-[88vw] max-w-[340px] md:w-[350px] lg:w-[400px] aspect-[3/4] flex justify-center items-end">
