@@ -269,9 +269,17 @@ const App: React.FC = () => {
           
           {/* BACKGROUND NAME WATERMARK */}
           <div className="absolute inset-0 flex items-start justify-center overflow-hidden pointer-events-none select-none z-0 pt-4 md:pt-6">
+            {/* Mobile watermark */}
             <span
-              className="font-display font-black uppercase whitespace-nowrap w-full text-center"
+              className="md:hidden font-display font-black uppercase whitespace-nowrap w-full text-center"
               style={{ color: 'rgba(255,255,255,0.05)', fontSize: 'clamp(2rem, 12vw, 7rem)', letterSpacing: '0.05em' }}
+            >
+              РОБЕРТ
+            </span>
+            {/* Desktop watermark — smaller, fits within center area */}
+            <span
+              className="hidden md:block font-display font-black uppercase whitespace-nowrap text-center"
+              style={{ color: 'rgba(255,255,255,0.04)', fontSize: '5rem', letterSpacing: '0.1em' }}
             >
               РОБЕРТ
             </span>
@@ -338,6 +346,15 @@ const App: React.FC = () => {
                     <MapPin size={18} className="text-lime-400" />
                     <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
                  </div>
+                 <a
+                   href="https://vata-ecru.vercel.app"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold"
+                 >
+                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                   Открыть в браузере
+                 </a>
               </div>
             </div>
           </div>
@@ -413,6 +430,15 @@ const App: React.FC = () => {
                     <MapPin size={18} className="text-lime-400" />
                     <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
                  </div>
+                 <a
+                   href="https://vata-ecru.vercel.app"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="flex items-center gap-2 text-lime-400 hover:text-lime-300 transition-colors text-sm font-bold"
+                 >
+                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                   Открыть в браузере
+                 </a>
               </div>
             </div>
           </div>
