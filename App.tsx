@@ -337,13 +337,13 @@ const App: React.FC = () => {
               </div>
 
               {/* Contact Info (like image) - Desktop only */}
-              <div className="hidden md:flex w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex-col gap-4 shadow-xl backdrop-blur-sm">
-                 <div className="flex items-center justify-center gap-4 text-neutral-300">
-                    <Phone size={18} className="text-lime-400" />
+              <div className="hidden md:flex w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex-col gap-4 shadow-xl backdrop-blur-sm items-center">
+                 <div className="flex items-center gap-3 text-neutral-300">
+                    <Phone size={17} className="text-lime-400 shrink-0" />
                     <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
                  </div>
-                 <div className="flex items-center justify-center gap-4 text-neutral-300">
-                    <MapPin size={18} className="text-lime-400" />
+                 <div className="flex items-center gap-3 text-neutral-300">
+                    <MapPin size={17} className="text-lime-400 shrink-0" />
                     <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
                  </div>
                  <a
@@ -421,13 +421,13 @@ const App: React.FC = () => {
               </div>
 
               {/* Contact Info */}
-              <div className="w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-xl backdrop-blur-sm">
-                 <div className="flex items-center justify-center gap-4 text-neutral-300">
-                    <Phone size={18} className="text-lime-400" />
+              <div className="w-full max-w-[320px] bg-neutral-900/60 border border-white/5 rounded-2xl p-5 flex flex-col gap-4 shadow-xl backdrop-blur-sm items-center">
+                 <div className="flex items-center gap-3 text-neutral-300">
+                    <Phone size={17} className="text-lime-400 shrink-0" />
                     <span className="text-[15px] font-medium tracking-wide">+7 (985) 402-09-86</span>
                  </div>
-                 <div className="flex items-center justify-center gap-4 text-neutral-300">
-                    <MapPin size={18} className="text-lime-400" />
+                 <div className="flex items-center gap-3 text-neutral-300">
+                    <MapPin size={17} className="text-lime-400 shrink-0" />
                     <span className="text-[15px] font-medium tracking-wide">Москва, Россия</span>
                  </div>
                  <a
